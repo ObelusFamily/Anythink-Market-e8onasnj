@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Type
 
 from pypika import Parameter as CommonParameter, Query, Table
 
@@ -17,7 +17,7 @@ class TypedTable(Table):
         name: Optional[str] = None,
         schema: Optional[str] = None,
         alias: Optional[str] = None,
-        query_cls: Optional[Query] = None,
+        query_cls: Optional[Type[Query]] = None,
     ) -> None:
         if name is None:
             if self.__table__:
@@ -44,6 +44,7 @@ class Items(TypedTable):
     description: str
     body: str
     seller_id: int
+    is_verified: bool
     created_at: datetime
     updated_at: datetime
 

@@ -30,6 +30,7 @@ async def retrieve_current_user(
             email=user.email,
             bio=user.bio,
             image=user.image,
+            is_verified=user.is_verified,
             token=token,
         ),
     )
